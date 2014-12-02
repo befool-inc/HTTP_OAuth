@@ -281,7 +281,7 @@ class HTTP_OAuth_Consumer_Request extends HTTP_OAuth_Message
         switch ($this->getMethod()) {
         case 'POST':
             foreach ($this->getParameters() as $name => $value) {
-                if (substr($name, 0, 6) == 'oauth_') {
+                if (substr($name, 0, 6) == 'oauth_' || substr($name, 0, 7) == 'xoauth_') {
                     continue;
                 }
 
@@ -291,7 +291,7 @@ class HTTP_OAuth_Consumer_Request extends HTTP_OAuth_Message
         case 'GET':
             $url = $this->getUrl();
             foreach ($this->getParameters() as $name => $value) {
-                if (substr($name, 0, 6) == 'oauth_') {
+                if (substr($name, 0, 6) == 'oauth_' || substr($name, 0, 7) == 'xoauth_') {
                     continue;
                 }
 

@@ -60,7 +60,11 @@ implements ArrayAccess, Countable, IteratorAggregate
         'verifier',
         'version',
         'callback',
-        'session_handle'
+        'session_handle',
+    );
+    
+    static protected $xoauthParams = array(
+        'requestor_id',
     );
 
     /**
@@ -79,6 +83,11 @@ implements ArrayAccess, Countable, IteratorAggregate
     {
         $params = array();
         foreach (self::$oauthParams as $param) {
+            if ($this->$param !== null) {
+                $params[$this->prefixParameter($param)] = $this->$param;
+            }
+        }
+        foreach (self::$xoauthParams as $param) {
             if ($this->$param !== null) {
                 $params[$this->prefixParameter($param)] = $this->$param;
             }
@@ -143,7 +152,7 @@ implements ArrayAccess, Countable, IteratorAggregate
         if (array_key_exists($var, $this->parameters)) {
             return $this->parameters[$var];
         }
-
+        
         $method = 'get' . ucfirst($var);
         if (method_exists($this, $method)) {
             return $this->$method();
@@ -247,6 +256,9 @@ implements ArrayAccess, Countable, IteratorAggregate
     {
         if (in_array($param, self::$oauthParams)) {
             $param = 'oauth_' . $param;
+        }
+        if (in_array($param, self::$xoauthParams)) {
+            $param = 'xoauth_' . $param;
         }
 
         return $param;
