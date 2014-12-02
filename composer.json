@@ -16,6 +16,7 @@
     "autoload": {
         "classmap": ["HTTP"]
     },
+    "include-path": ["."],
     "require": {
         "php": ">=5.1.2",
         "ext-date": "*",
