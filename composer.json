@@ -1,7 +1,7 @@
 {
     "name": "befool-inc/http_oauth",
     "description": "HTTP_OAuth package contains the basics for both OAuth consumers and providers.",
-    "version": "0.2.3-dev",
+    "version": "0.2.x-dev",
     "type": "library",
     "keywords":["pear"],
     "license": "BSD-3-Clause",
@@ -34,7 +34,7 @@
     ],
     "extra": {
         "branch-alias": {
-            "dev-master": "0.2.3-dev"
+            "dev-master": "0.2.x-dev"
         }
     }
 }
