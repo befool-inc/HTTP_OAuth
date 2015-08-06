@@ -22,17 +22,11 @@
         "ext-date": "*",
         "ext-spl": "*",
         "ext-hash": "*",
-        "pear-pear.php.net/PEAR": "*",
-        "pear-pear.php.net/HTTP_Request2": "*",
-        "pear-pear.php.net/Log": "*",
-        "pear-pear.php.net/Cache_Lite": "*"
+        "pear/pear-core-minimal": "*",
+        "pear/http_request2": "*",
+        "pear/log": "*",
+        "pear/cache_lite": "*"
     },
-    "repositories": [
-        {
-            "type": "pear",
-            "url": "http://pear.php.net/"
-        }
-    ],
     "extra": {
         "branch-alias": {
             "dev-master": "0.2.x-dev"
